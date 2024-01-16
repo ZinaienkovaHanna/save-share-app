@@ -1,0 +1,6 @@
+.container {
+    width: var(--containerWidth);
+    margin: auto;
+    color: var(--textColor);
+    text-align: center;
+}

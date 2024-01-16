@@ -1,0 +1,42 @@
+.button {
+    padding: var(--spacingBase) var(--spacingExtraMedium);
+    background-color: var(--backgroundMenuColor);
+    border: none;
+    border-radius: var(--borderRadius);
+    color: var(--textColor);
+    font-size: var(--fontSizeBase);
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--backgroundButtonColorHover);
+}
+
+.login {
+    margin-top: var(--spacingLarge);
+    padding: var(--spacingBase) var(--spacingExtraLarge);
+}
+
+.forgot_password {
+    background-color: var(--backgroundFormColor);
+    font-size: var(--fontSizeSmall);
+    transition: transform 0.3s ease-in-out;
+}
+
+.forgot_password:hover {
+    background-color: var(--backgroundFormColor);
+    transform: scale(1.2);
+}
+
+.registration {
+    background-color: var(--backgroundFormColor);
+    color: var(--textHoverColor);
+    font-size: var(--fontSizeBase);
+    transition: transform 0.3s ease-in-out;
+}
+
+.registration:hover {
+    background-color: var(--backgroundFormColor);
+    color: var(--textHoverColor);
+    transform: scale(1.2);
+}

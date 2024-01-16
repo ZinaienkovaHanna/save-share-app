@@ -1,0 +1,16 @@
+.button {
+    background-color: var(--backgroundButtonColor);
+    color: var(--iconColor);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.button:hover {
+    color: var(--iconColorHover);
+    transform: scale(1.2);
+}
+
+.close {
+    margin-left: var(--iconCloseMargin);
+}

@@ -1,23 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 body {
-    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: 'Roboto', 'Inter', 'Segoe UI', 'Oxygen', sans-serif;
     box-sizing: border-box;
     background: var(--backgroundColor);
     height: 100%;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+}
+
 :root {
     /* ### Color */
     --textColor: #27383a;
+    --textHoverColor: #6d9ea3;
+    --textPlaceholderColor: #798989;
     --invalidColor: rgb(228, 101, 101);
 
-    --backgroundColor: #c4d3d3;
+    /* --backgroundColor: #c4d3d3; */
+    --backgroundColor: #dfeeee;
+    /* --backgroundMenuColor: #6d9ea3; */
     --backgroundMenuColor: #6d9ea3;
     --backgroundContainerColor: #d3d2cd;
-    --backgroundButtonColor: #a2c1c3;
+    --backgroundFormColor: #f3f2f5;
+    --backgroundModalColor: rgba(92, 93, 94, 0.4);
+
+    /* --backgroundButtonColorHover: #6d9ea3; */
+    --backgroundButtonColorHover: #a2c1c3;
+
     --backgroundActiveColor: #a2c1c3;
 
     --iconColor: #27383a;
@@ -44,15 +56,22 @@ body {
     --fontWeightMedium: 500;
 
     /* ### Border-radius */
-    --borderRadius: 4px;
+    --borderRadius: 16px;
 
     /* ### Width */
     --containerWidth: 1200px;
     --menuWidth: 1200px;
     --buttonWidth: 100px;
+    --loginWidth: 400px;
+    --inputWidth: 300px;
 
     /* ### Height */
     --menuHeight: 60px;
     --logoHeight: 48px;
     --buttonHeight: 32px;
+    --loginHeight: 400px;
+
+    /* ### Margin */
+
+    --iconCloseMargin: 375px;
 }
