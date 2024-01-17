@@ -11,13 +11,14 @@
 
 .content {
     width: var(--loginWidth);
-    height: var(--loginHeight);
+    height: var(--signupHeight);
     background-color: var(--backgroundFormColor);
     box-shadow: 0 var(--spacingBase) var(--spacingBase) rgba(0, 0, 0, 0.1);
     padding: var(--spacingExtraMedium);
 }
 
 .title {
+    margin-top: var(--spacingLarge);
     margin-bottom: var(--spacingLarge);
     text-align: center;
     color: var(--textColor);
@@ -54,10 +55,10 @@
 
 .checkbox_container {
     width: var(--inputWidth);
-    margin-top: 12px;
+    margin-top: var(--spacingSmall);
     font-size: var(--fontSizeSmall);
     display: flex;
-    gap: 12px;
+    gap: var(--spacingSmall);
 }
 
 .container_button {

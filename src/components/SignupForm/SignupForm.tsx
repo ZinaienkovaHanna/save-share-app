@@ -14,7 +14,7 @@ const SignupForm: FC<SignupFormFormProps> = ({ onClose, openLoginForm }) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [termsAccepted, setTermsAccepted] = useState(false);
+    const [termsAccepted, setTermsAccepted] = useState(true);
 
     return (
         <div className={styles.container}>
