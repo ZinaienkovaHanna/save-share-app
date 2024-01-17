@@ -18,7 +18,6 @@
 }
 
 .title {
-    margin-top: var(--spacingLarge);
     margin-bottom: var(--spacingLarge);
     text-align: center;
     color: var(--textColor);
@@ -53,8 +52,15 @@
     border: 1px solid var(--textColor);
 }
 
-.container_button {
-    margin-top: var(--spacingLarge);
+.checkbox_container {
+    width: var(--inputWidth);
+    margin-top: 12px;
+    font-size: var(--fontSizeSmall);
     display: flex;
-    justify-content: space-around;
+    gap: 12px;
+}
+
+.container_button {
+    display: flex;
+    justify-content: center;
 }

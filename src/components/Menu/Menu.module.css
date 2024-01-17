@@ -15,21 +15,7 @@
 
 .logo {
     text-decoration: none;
-    color: var(--textColor);
+    color: var(--textMenuColor);
     font-size: var(--fontSizeBase);
     font-weight: var(--fontWeightRegular);
-}
-
-.button {
-    border: none;
-    border-radius: var(--borderRadius);
-    color: var(--textColor);
-    background-color: var(--backgroundMenuColor);
-    font-size: var(--fontSizeBase);
-    cursor: pointer;
-    padding: var(--spacingBase) var(--spacingExtraMedium);
-}
-
-.button:hover {
-    background-color: var(--backgroundButtonColorHover);
 }

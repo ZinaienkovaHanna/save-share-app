@@ -3,17 +3,20 @@ import { mdiWindowClose } from '@mdi/js';
 import IconButton from '../IconButton/IconButton';
 import Button from '../Button';
 
-import styles from './LoginForm.module.css';
+import styles from './ResetPasswordForm.module.css';
 
-interface LoginFormProps {
+interface ResetPasswordFormProps {
     onClose: () => void;
     openSignupForm: () => void;
-    openResetPasswordForm: () => void;
+    openLoginForm: () => void;
 }
 
-const LoginForm: FC<LoginFormProps> = ({ onClose, openSignupForm, openResetPasswordForm }) => {
+const ResetPasswordForm: FC<ResetPasswordFormProps> = ({
+    onClose,
+    openSignupForm,
+    openLoginForm,
+}) => {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -28,7 +31,7 @@ const LoginForm: FC<LoginFormProps> = ({ onClose, openSignupForm, openResetPassw
                     iconSize={1}
                     iconClassName="close"
                 />
-                <h3 className={styles.title}>Log in to your account</h3>
+                <h3 className={styles.title}>Reset Password</h3>
 
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <input
@@ -40,33 +43,16 @@ const LoginForm: FC<LoginFormProps> = ({ onClose, openSignupForm, openResetPassw
                         autoComplete="email"
                     />
 
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        className={styles.input}
-                        placeholder="Enter your password"
-                        autoComplete="current-password"
-                    />
-
-                    <Button text="Log In" onClick={() => {}} />
+                    <Button text="Reset Password" onClick={() => {}} />
                 </form>
 
                 <div className={styles.container_button}>
-                    <Button
-                        text="Forgot password?"
-                        onClick={openResetPasswordForm}
-                        buttonClassName="text_button"
-                    />
-                    <Button
-                        text="Sign Up"
-                        onClick={openSignupForm}
-                        buttonClassName="text_button_color"
-                    />
+                    <Button text="Log In" onClick={openLoginForm} buttonClassName="text_button" />
+                    <Button text="Sign Up" onClick={openSignupForm} buttonClassName="text_button" />
                 </div>
             </div>
         </div>
     );
 };
 
-export default LoginForm;
+export default ResetPasswordForm;

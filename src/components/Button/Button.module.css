@@ -1,42 +1,44 @@
 .button {
-    padding: var(--spacingBase) var(--spacingExtraMedium);
+    margin-top: var(--spacingMedium);
+    padding: var(--spacingBase) var(--spacingExtraLarge);
     background-color: var(--backgroundMenuColor);
     border: none;
     border-radius: var(--borderRadius);
-    color: var(--textColor);
+    color: var(--textButtonColor);
     font-size: var(--fontSizeBase);
     cursor: pointer;
 }
 
 .button:hover {
     background-color: var(--backgroundButtonColorHover);
+    color: var(--textColor);
 }
 
-.login {
-    margin-top: var(--spacingLarge);
-    padding: var(--spacingBase) var(--spacingExtraLarge);
+.menu_button {
+    margin-top: 0;
+    padding: var(--spacingBase) var(--spacingExtraMedium);
 }
 
-.forgot_password {
-    background-color: var(--backgroundFormColor);
-    font-size: var(--fontSizeSmall);
-    transition: transform 0.3s ease-in-out;
-}
-
-.forgot_password:hover {
-    background-color: var(--backgroundFormColor);
-    transform: scale(1.2);
-}
-
-.registration {
+.text_button_color {
     background-color: var(--backgroundFormColor);
     color: var(--textHoverColor);
     font-size: var(--fontSizeBase);
     transition: transform 0.3s ease-in-out;
 }
 
-.registration:hover {
+.text_button_color:hover {
     background-color: var(--backgroundFormColor);
     color: var(--textHoverColor);
     transform: scale(1.2);
+}
+
+.text_button {
+    background-color: var(--backgroundFormColor);
+    color: var(--textColor);
+    font-size: var(--fontSizeSmall);
+}
+
+.text_button:hover {
+    background-color: var(--backgroundFormColor);
+    text-decoration: underline;
 }

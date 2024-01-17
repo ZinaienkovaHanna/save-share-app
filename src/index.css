@@ -14,25 +14,22 @@ body {
 
 :root {
     /* ### Color */
-    --textColor: #27383a;
-    --textHoverColor: #6d9ea3;
+    --textColor: #1e2b2c;
+    --textMenuColor: #f3f2f5;
+    --textButtonColor: #f3f2f5;
+    --textHoverColor: #53787c;
     --textPlaceholderColor: #798989;
-    --invalidColor: rgb(228, 101, 101);
 
-    /* --backgroundColor: #c4d3d3; */
+    --invalidColor: rgb(228, 101, 101);
+    --iconColor: #1e2b2c;
+
     --backgroundColor: #dfeeee;
-    /* --backgroundMenuColor: #6d9ea3; */
-    --backgroundMenuColor: #6d9ea3;
+    --backgroundMenuColor: #53787c;
     --backgroundContainerColor: #d3d2cd;
     --backgroundFormColor: #f3f2f5;
     --backgroundModalColor: rgba(92, 93, 94, 0.4);
-
-    /* --backgroundButtonColorHover: #6d9ea3; */
     --backgroundButtonColorHover: #a2c1c3;
-
     --backgroundActiveColor: #a2c1c3;
-
-    --iconColor: #27383a;
 
     /* ### Spacing */
     --spacingBase: 8px;
@@ -69,9 +66,9 @@ body {
     --menuHeight: 60px;
     --logoHeight: 48px;
     --buttonHeight: 32px;
-    --loginHeight: 400px;
+    --loginHeight: 420px;
 
     /* ### Margin */
-
     --iconCloseMargin: 375px;
+    --buttonMargin: 110px;
 }
