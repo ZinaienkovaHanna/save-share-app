@@ -28,13 +28,25 @@
 }
 
 .name {
-    min-width: var(--nameContainerWidth);
+    width: var(--nameContainerWidth);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: var(--fontSizeBase);
     font-weight: var(--fontWeightMedium);
 }
+
+.name_input {
+    min-width: var(--nameContainerWidth);
+    border: 1px solid var(--borderItemColor);
+    font-size: var(--fontSizeBase);
+}
+
+.name_input:focus {
+    outline: none;
+    border: 1px solid var(--textColor);
+}
+
 .text {
     min-width: var(--textContainerMinWidth);
     max-width: var(--textContainerMaxWidth);
@@ -49,7 +61,6 @@
 }
 
 .action_container {
-    width: var(--actionCOntainerWidth);
     display: flex;
     gap: var(--spacingBase);
 }

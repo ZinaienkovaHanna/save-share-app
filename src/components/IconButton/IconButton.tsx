@@ -5,18 +5,17 @@ import styles from './IconButton.module.css';
 
 interface IconButtonProps {
     iconPath: string;
-    iconSize: number;
     iconClassName?: string;
     onClick?: () => void;
 }
 
-const IconButton: FC<IconButtonProps> = ({ onClick, iconPath, iconSize, iconClassName }) => {
+const IconButton: FC<IconButtonProps> = ({ onClick, iconPath, iconClassName }) => {
     return (
         <button
             className={`${styles.button} ${iconClassName ? styles[iconClassName] : ''}`}
             onClick={onClick}
         >
-            <Icon path={iconPath} size={iconSize} />
+            <Icon path={iconPath} size={0.8} />
         </button>
     );
 };

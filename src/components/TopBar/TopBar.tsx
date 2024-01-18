@@ -1,29 +1,97 @@
-import { FC, useState } from 'react';
-import { mdiUpdate, mdiRename, mdiExportVariant, mdiStar, mdiDelete, mdiArchive } from '@mdi/js';
+import { FC } from 'react';
+import {
+    mdiUpdate,
+    mdiRename,
+    mdiExportVariant,
+    mdiStar,
+    mdiStarOutline,
+    mdiDelete,
+    mdiArchive,
+    mdiArchiveOutline,
+} from '@mdi/js';
 import IconButton from '../IconButton';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import {
+    addArchiveToSelectedItems,
+    addFavoriteToSelectedItems,
+    removeArchiveFromSelectedItems,
+    removeFavoriteFromSelectedItems,
+    deleteSelectedItems,
+    activateEditingNameForSelectedItems,
+    selectAllItems,
+    deselectAllItems,
+} from '../../store/reducer';
 
 import styles from './TopBar.module.css';
 
-const TopBar: FC = () => {
-    const [isSelected, setIsSelected] = useState(false);
+interface TopBarProps {
+    handleToggleSelectedAll: () => void;
+    isSelectedAll: boolean;
+}
+
+const TopBar: FC<TopBarProps> = ({ handleToggleSelectedAll, isSelectedAll }) => {
+    const { items } = useAppSelector((state) => state.items);
+    const dispatch = useAppDispatch();
+
+    const isAnyItemSelected = items.some((item) => item.isSelected);
+
+    const handleToggleSelectedAllItems = () => {
+        if (!isSelectedAll) {
+            dispatch(selectAllItems());
+        } else {
+            dispatch(deselectAllItems());
+        }
+
+        handleToggleSelectedAll();
+    };
+
+    const handleAddFavoriteItems = () => {
+        dispatch(addFavoriteToSelectedItems());
+    };
+
+    const handleDeleteFavoriteItems = () => {
+        dispatch(removeFavoriteFromSelectedItems());
+    };
+
+    const handleAddArchiveItems = () => {
+        dispatch(addArchiveToSelectedItems());
+    };
+
+    const handleDeleteArchiveItems = () => {
+        dispatch(removeArchiveFromSelectedItems());
+    };
+
+    const handleDeleteSelectedItems = () => {
+        dispatch(deleteSelectedItems());
+    };
+
+    const handleSetIsEditingNameToSelectedItems = () => {
+        dispatch(activateEditingNameForSelectedItems());
+    };
 
     return (
         <div className={styles.container}>
             <input
                 type="checkbox"
-                checked={isSelected}
-                onChange={() => setIsSelected(!isSelected)}
+                checked={isSelectedAll}
+                onChange={handleToggleSelectedAllItems}
             />
+            {/* TODO: */}
+            <IconButton iconPath={mdiUpdate} />
 
-            <IconButton iconPath={mdiUpdate} iconSize={1} />
-
-            {isSelected && (
+            {isAnyItemSelected && (
                 <>
-                    <IconButton iconPath={mdiStar} iconSize={1} />
-                    <IconButton iconPath={mdiRename} iconSize={1} />
-                    <IconButton iconPath={mdiExportVariant} iconSize={1} />
-                    <IconButton iconPath={mdiArchive} iconSize={1} />
-                    <IconButton iconPath={mdiDelete} iconSize={1} />
+                    <IconButton iconPath={mdiStarOutline} onClick={handleDeleteFavoriteItems} />
+                    <IconButton iconPath={mdiStar} onClick={handleAddFavoriteItems} />
+                    <IconButton
+                        iconPath={mdiRename}
+                        onClick={handleSetIsEditingNameToSelectedItems}
+                    />
+                    {/* TODO: */}
+                    <IconButton iconPath={mdiExportVariant} />
+                    <IconButton iconPath={mdiArchiveOutline} onClick={handleDeleteArchiveItems} />
+                    <IconButton iconPath={mdiArchive} onClick={handleAddArchiveItems} />
+                    <IconButton iconPath={mdiDelete} onClick={handleDeleteSelectedItems} />
                 </>
             )}
         </div>

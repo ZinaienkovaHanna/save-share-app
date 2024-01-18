@@ -5,4 +5,6 @@ export interface Item {
     fileSize: string;
     isFavorite: boolean;
     isArchive: boolean;
+    isSelected: boolean;
+    isEditingName: boolean;
 }

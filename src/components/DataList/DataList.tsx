@@ -6,13 +6,18 @@ import styles from './DataList.module.css';
 
 interface DataListProps {
     items: Item[];
+    handleClearSelectedAll: () => void;
 }
 
-const DataList: FC<DataListProps> = ({ items }) => {
+const DataList: FC<DataListProps> = ({ items, handleClearSelectedAll }) => {
     return (
         <div className={styles.container}>
             {items.map((item) => (
-                <DataItem key={item.id} item={item} />
+                <DataItem
+                    key={item.id}
+                    item={item}
+                    handleClearSelectedAll={handleClearSelectedAll}
+                />
             ))}
         </div>
     );

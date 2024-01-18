@@ -5,7 +5,9 @@
         "text": "Lorem ipsum dolor sit amet.",
         "fileSize": "10 kB",
         "isFavorite": false,
-        "isArchive": false
+        "isArchive": false,
+        "isSelected": false,
+        "isEditingName": false
     },
     {
         "id": "1",
@@ -13,7 +15,9 @@
         "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquam doloribus ab fugit rem dignissimos enim aut voluptate earum repellat ad, at distinctio vitae error temporibus quas voluptas delectus placeat. Ab fugit magnam placeat incidunt aliquam quasi porro esse in?",
         "fileSize": "12 kB",
         "isFavorite": false,
-        "isArchive": false
+        "isArchive": false,
+        "isSelected": false,
+        "isEditingName": false
     },
     {
         "id": "2",
@@ -21,7 +25,9 @@
         "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquam doloribus ab fugit rem dignissimos enim aut voluptate earum repellat ad, at distinctio vitae error temporibus quas voluptas delectus placeat. Ab fugit magnam placeat incidunt aliquam quasi porro esse in?",
         "fileSize": "23 kB",
         "isFavorite": false,
-        "isArchive": false
+        "isArchive": false,
+        "isSelected": false,
+        "isEditingName": false
     },
     {
         "id": "3",
@@ -29,7 +35,9 @@
         "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquam doloribus ab fugit rem dignissimos enim aut voluptate earum repellat ad.",
         "fileSize": "15 kB",
         "isFavorite": false,
-        "isArchive": false
+        "isArchive": false,
+        "isSelected": false,
+        "isEditingName": false
     },
     {
         "id": "4",
@@ -37,7 +45,9 @@
         "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquam doloribus ab.",
         "fileSize": "15 kB",
         "isFavorite": false,
-        "isArchive": false
+        "isArchive": false,
+        "isSelected": false,
+        "isEditingName": false
     },
     {
         "id": "5",
@@ -45,7 +55,9 @@
         "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
         "fileSize": "14 kB",
         "isFavorite": false,
-        "isArchive": false
+        "isArchive": false,
+        "isSelected": false,
+        "isEditingName": false
     },
     {
         "id": "6",
@@ -53,6 +65,8 @@
         "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquam doloribus ab fugit rem dignissimos enim aut voluptate earum repellat ad.",
         "fileSize": "18 kB",
         "isFavorite": false,
-        "isArchive": false
+        "isArchive": false,
+        "isSelected": false,
+        "isEditingName": false
     }
 ]

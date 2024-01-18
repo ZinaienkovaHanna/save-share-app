@@ -21,7 +21,7 @@ body {
     --textPlaceholderColor: #798989;
 
     --invalidColor: rgb(228, 101, 101);
-    --iconColor: #434f51;
+    --iconColor: #6f7b7d;
     --borderItemColor: #dfdee1;
     --backgroundColor: #dfeeee;
     --backgroundMenuColor: #53787c;
@@ -64,9 +64,8 @@ body {
     --loginWidth: 400px;
     --inputWidth: 300px;
     --nameContainerWidth: 200px;
-    --textContainerMinWidth: 770px;
+    --textContainerMinWidth: 790px;
     --textContainerMaxWidth: 890px;
-    --actionCOntainerWidth: 260px;
 
     /* ### Height */
     --menuHeight: 60px;

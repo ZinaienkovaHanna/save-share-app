@@ -19,12 +19,7 @@ const SignupForm: FC<SignupFormFormProps> = ({ onClose, openLoginForm }) => {
     return (
         <div className={styles.container}>
             <div className={styles.content}>
-                <IconButton
-                    onClick={onClose}
-                    iconPath={mdiWindowClose}
-                    iconSize={1}
-                    iconClassName="close"
-                />
+                <IconButton onClick={onClose} iconPath={mdiWindowClose} iconClassName="close" />
                 <h3 className={styles.title}>Register:</h3>
 
                 <form className={styles.form} onSubmit={(e) => e.preventDefault()}>

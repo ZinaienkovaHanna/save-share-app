@@ -22,12 +22,7 @@ const LoginForm: FC<LoginFormProps> = ({ onClose, openSignupForm, openResetPassw
     return (
         <div className={styles.container}>
             <div className={styles.content}>
-                <IconButton
-                    onClick={onClose}
-                    iconPath={mdiWindowClose}
-                    iconSize={1}
-                    iconClassName="close"
-                />
+                <IconButton onClick={onClose} iconPath={mdiWindowClose} iconClassName="close" />
                 <h3 className={styles.title}>Log in to your account</h3>
 
                 <form className={styles.form} onSubmit={handleSubmit}>
