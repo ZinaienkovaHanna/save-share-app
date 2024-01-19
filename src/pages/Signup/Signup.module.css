@@ -1,0 +1,25 @@
+.container {
+    width: var(--loginWidth);
+    height: var(--signupHeight);
+    margin: var(--spacingLarge) auto;
+    background-color: var(--backgroundFormColor);
+    box-shadow: 0 var(--spacingBase) var(--spacingBase) rgba(0, 0, 0, 0.1);
+    padding: var(--spacingExtraMedium);
+    border-radius: var(--borderRadiusBase);
+}
+
+.container_link {
+    margin-top: var(--spacingExtraMedium);
+    display: flex;
+    justify-content: space-around;
+}
+
+.link {
+    color: var(--textColor);
+    font-size: var(--fontSizeSmall);
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

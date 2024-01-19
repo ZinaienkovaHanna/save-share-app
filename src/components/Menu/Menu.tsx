@@ -5,25 +5,23 @@ import styles from './Menu.module.css';
 
 const Menu: FC = () => {
     return (
-        <>
-            <div className={styles.container}>
-                <nav>
-                    <ul className={styles.wrapper}>
-                        <li>
-                            <Link to="/" className={styles.logo}>
-                                Logo
-                            </Link>
-                        </li>
+        <div className={styles.container}>
+            <nav>
+                <ul className={styles.wrapper}>
+                    <li>
+                        <Link to="/" className={styles.logo}>
+                            Logo
+                        </Link>
+                    </li>
 
-                        <li>
-                            <Link to="/login" className={styles.link}>
-                                Log in
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </>
+                    <li>
+                        <Link to="/login" className={styles.link}>
+                            Log in
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     );
 };
 

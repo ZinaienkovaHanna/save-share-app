@@ -1,29 +1,52 @@
 import { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Button from '../Button';
+import { validateForm } from '../../utils/validationForm';
 
 import styles from './Form.module.css';
 
 interface FormProps {
     type: string;
-    title: string;
     textButton: string;
-    onClick: () => void;
-    className?: string;
+    onSubmit?: any;
 }
 
-const Form: FC<FormProps> = ({ type, title, textButton, onClick, className }) => {
+interface Error {
+    username?: string;
+    email?: string;
+    password?: string;
+    terms?: string;
+}
+
+const Form: FC<FormProps> = ({ type, textButton, onSubmit }) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [termsAccepted, setTermsAccepted] = useState(true);
+    const [errors, setErrors] = useState<Error>({
+        username: '',
+        email: '',
+        password: '',
+        terms: '',
+    });
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        const { isValid, errors } = validateForm(type, username, termsAccepted, email, password);
+
+        if (isValid) {
+            if (type === 'login') onSubmit(email, password);
+            if (type === 'signup') onSubmit(username, email, password);
+            if (type === 'resetPassword') onSubmit(email);
+        } else {
+            setErrors(errors);
+        }
+    };
 
     return (
-        <div className={`${styles.container} ${className ? styles[className] : ''}`}>
-            <h3 className={styles.title}>{title}</h3>
-
-            <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-                {type === 'signup' && (
+        <form className={styles.form} onSubmit={handleSubmit}>
+            {type === 'signup' && (
+                <>
                     <input
                         type="text"
                         value={username}
@@ -32,18 +55,22 @@ const Form: FC<FormProps> = ({ type, title, textButton, onClick, className }) =>
                         placeholder="Enter your name"
                         autoComplete="username"
                     />
-                )}
+                    {errors.username && <p className={styles.error}>{errors.username}</p>}
+                </>
+            )}
 
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className={styles.input}
-                    placeholder="Enter your email address"
-                    autoComplete="email"
-                />
+            <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className={styles.input}
+                placeholder="Enter your email address"
+                autoComplete="email"
+            />
+            {errors.email && <p className={styles.error}>{errors.email}</p>}
 
-                {(type === 'signup' || type === 'login') && (
+            {(type === 'signup' || type === 'login') && (
+                <>
                     <input
                         type="password"
                         value={password}
@@ -52,9 +79,12 @@ const Form: FC<FormProps> = ({ type, title, textButton, onClick, className }) =>
                         placeholder={type === 'login' ? 'Enter your password' : 'Create a password'}
                         autoComplete="current-password"
                     />
-                )}
+                    {errors.password && <p className={styles.error}>{errors.password}</p>}
+                </>
+            )}
 
-                {type === 'signup' && (
+            {type === 'signup' && (
+                <>
                     <div className={styles.checkbox_container}>
                         <input
                             type="checkbox"
@@ -67,41 +97,12 @@ const Form: FC<FormProps> = ({ type, title, textButton, onClick, className }) =>
                             Service and our Privacy Policy. Cookie Preferences.
                         </label>
                     </div>
-                )}
+                    {errors.terms && <p className={styles.error}>{errors.terms}</p>}
+                </>
+            )}
 
-                <Button text={textButton} onClick={onClick} />
-            </form>
-
-            <div className={styles.container_link}>
-                {type === 'login' && (
-                    <>
-                        <Link to="/reset_password" className={styles.link}>
-                            Forgot password?
-                        </Link>
-                        <Link to="/signup" className={`${styles.link} ${styles.color}`}>
-                            Sign Up
-                        </Link>
-                    </>
-                )}
-
-                {type === 'signup' && (
-                    <Link to="/login" className={styles.link}>
-                        Already have an account?
-                    </Link>
-                )}
-
-                {type === 'resetPassword' && (
-                    <>
-                        <Link to="/login" className={styles.link}>
-                            Log In
-                        </Link>
-                        <Link to="/signup" className={styles.link}>
-                            Sign Up
-                        </Link>
-                    </>
-                )}
-            </div>
-        </div>
+            <Button text={textButton} />
+        </form>
     );
 };
 

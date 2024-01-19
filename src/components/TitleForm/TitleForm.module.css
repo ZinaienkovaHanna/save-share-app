@@ -1,0 +1,8 @@
+.title {
+    margin-top: var(--spacingLarge);
+    margin-bottom: var(--spacingExtraMedium);
+    text-align: center;
+    color: var(--textColor);
+    font-size: var(--fontSizeMedium);
+    font-weight: var(--fontWeightRegular);
+}

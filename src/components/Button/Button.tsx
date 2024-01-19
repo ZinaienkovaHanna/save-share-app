@@ -4,16 +4,11 @@ import styles from './Button.module.css';
 
 interface ButtonProps {
     text: string;
-    onClick: () => void;
-    buttonClassName?: string;
 }
 
-const Button: FC<ButtonProps> = ({ text, onClick, buttonClassName }) => {
+const Button: FC<ButtonProps> = ({ text }) => {
     return (
-        <button
-            className={`${styles.button} ${buttonClassName ? styles[buttonClassName] : ''}`}
-            onClick={onClick}
-        >
+        <button className={styles.button} type="submit">
             {text}
         </button>
     );
