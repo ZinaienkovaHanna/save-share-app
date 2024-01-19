@@ -5,16 +5,12 @@ import styles from './IconButton.module.css';
 
 interface IconButtonProps {
     iconPath: string;
-    iconClassName?: string;
-    onClick?: () => void;
+    onClick: () => void;
 }
 
-const IconButton: FC<IconButtonProps> = ({ onClick, iconPath, iconClassName }) => {
+const IconButton: FC<IconButtonProps> = ({ onClick, iconPath }) => {
     return (
-        <button
-            className={`${styles.button} ${iconClassName ? styles[iconClassName] : ''}`}
-            onClick={onClick}
-        >
+        <button className={styles.button} onClick={onClick}>
             <Icon path={iconPath} size={0.8} />
         </button>
     );

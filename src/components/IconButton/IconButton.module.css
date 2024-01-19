@@ -10,7 +10,3 @@
     color: var(--iconColorHover);
     transform: scale(1.2);
 }
-
-.close {
-    margin-left: var(--iconCloseMargin);
-}

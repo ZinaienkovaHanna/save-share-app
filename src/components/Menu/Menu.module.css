@@ -19,3 +19,14 @@
     font-size: var(--fontSizeBase);
     font-weight: var(--fontWeightRegular);
 }
+
+.link {
+    text-decoration: none;
+    color: var(--textMenuColor);
+    font-size: var(--fontSizeBase);
+    font-weight: var(--fontWeightRegular);
+}
+
+.link:hover {
+    text-decoration: underline;
+}

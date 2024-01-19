@@ -1,35 +1,9 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import LoginForm from '../LoginForm';
-import Button from '../Button';
-import RegistrationForm from '../SignupForm';
-import ResetPasswordForm from '../ResetPasswordForm';
 
 import styles from './Menu.module.css';
 
 const Menu: FC = () => {
-    const [isLoginFormOpen, setIsLoginFormOpen] = useState(false);
-    const [isSignupFormOpen, setIsSignupFormOpen] = useState(false);
-    const [isResetPasswordFormOpen, setIsResetPasswordFormOpen] = useState(false);
-
-    const openLoginForm = () => {
-        setIsLoginFormOpen(true);
-        setIsSignupFormOpen(false);
-        setIsResetPasswordFormOpen(false);
-    };
-
-    const openSignupForm = () => {
-        setIsSignupFormOpen(true);
-        setIsLoginFormOpen(false);
-        setIsResetPasswordFormOpen(false);
-    };
-
-    const openResetPasswordForm = () => {
-        setIsResetPasswordFormOpen(true);
-        setIsLoginFormOpen(false);
-        setIsSignupFormOpen(false);
-    };
-
     return (
         <>
             <div className={styles.container}>
@@ -41,37 +15,14 @@ const Menu: FC = () => {
                             </Link>
                         </li>
 
-                        <Button
-                            onClick={() => setIsLoginFormOpen(true)}
-                            text="Log in"
-                            buttonClassName="menu_button"
-                        />
+                        <li>
+                            <Link to="/login" className={styles.link}>
+                                Log in
+                            </Link>
+                        </li>
                     </ul>
                 </nav>
             </div>
-
-            {isLoginFormOpen && (
-                <LoginForm
-                    onClose={() => setIsLoginFormOpen(false)}
-                    openSignupForm={openSignupForm}
-                    openResetPasswordForm={openResetPasswordForm}
-                />
-            )}
-
-            {isSignupFormOpen && (
-                <RegistrationForm
-                    onClose={() => setIsSignupFormOpen(false)}
-                    openLoginForm={openLoginForm}
-                />
-            )}
-
-            {isResetPasswordFormOpen && (
-                <ResetPasswordForm
-                    onClose={() => setIsResetPasswordFormOpen(false)}
-                    openSignupForm={openSignupForm}
-                    openLoginForm={openLoginForm}
-                />
-            )}
         </>
     );
 };

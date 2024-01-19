@@ -90,7 +90,7 @@ const DataItem: FC<DataItemProps> = ({ item, handleClearSelectedAll }) => {
                 <div className={styles.action_container}>
                     <IconButton iconPath={mdiRename} onClick={handleChangeItemName} />
                     {/* TODO: */}
-                    <IconButton iconPath={mdiExportVariant} />
+                    <IconButton iconPath={mdiExportVariant} onClick={() => {}} />
                     <IconButton
                         iconPath={item.isArchive ? mdiArchive : mdiArchiveOutline}
                         onClick={handleToggleArchiveItem}

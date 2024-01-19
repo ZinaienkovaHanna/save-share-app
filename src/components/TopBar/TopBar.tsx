@@ -77,7 +77,7 @@ const TopBar: FC<TopBarProps> = ({ handleToggleSelectedAll, isSelectedAll }) => 
                 onChange={handleToggleSelectedAllItems}
             />
             {/* TODO: */}
-            <IconButton iconPath={mdiUpdate} />
+            <IconButton iconPath={mdiUpdate} onClick={() => {}} />
 
             {isAnyItemSelected && (
                 <>
@@ -88,7 +88,7 @@ const TopBar: FC<TopBarProps> = ({ handleToggleSelectedAll, isSelectedAll }) => 
                         onClick={handleSetIsEditingNameToSelectedItems}
                     />
                     {/* TODO: */}
-                    <IconButton iconPath={mdiExportVariant} />
+                    <IconButton iconPath={mdiExportVariant} onClick={() => {}} />
                     <IconButton iconPath={mdiArchiveOutline} onClick={handleDeleteArchiveItems} />
                     <IconButton iconPath={mdiArchive} onClick={handleAddArchiveItems} />
                     <IconButton iconPath={mdiDelete} onClick={handleDeleteSelectedItems} />
