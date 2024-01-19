@@ -1,24 +1,38 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import DataItem from '../DataItem';
-import { Item } from '../../types/types';
+import TopBar from '../TopBar';
+import { useAppSelector } from '../../store/hooks';
 
 import styles from './DataList.module.css';
 
-interface DataListProps {
-    items: Item[];
-    handleClearSelectedAll: () => void;
-}
+const DataList: FC = () => {
+    const { items } = useAppSelector((state) => state.items);
+    const [isSelectedAll, setIsSelectedAll] = useState(false);
 
-const DataList: FC<DataListProps> = ({ items, handleClearSelectedAll }) => {
+    const handleToggleSelectedAll = () => {
+        setIsSelectedAll(!isSelectedAll);
+    };
+
+    const handleClearSelectedAll = () => {
+        setIsSelectedAll(false);
+    };
+
     return (
         <div className={styles.container}>
-            {items.map((item) => (
-                <DataItem
-                    key={item.id}
-                    item={item}
-                    handleClearSelectedAll={handleClearSelectedAll}
-                />
-            ))}
+            <TopBar
+                handleToggleSelectedAll={handleToggleSelectedAll}
+                isSelectedAll={isSelectedAll}
+            />
+
+            <div className={styles.container_list}>
+                {items.map((item) => (
+                    <DataItem
+                        key={item.id}
+                        item={item}
+                        handleClearSelectedAll={handleClearSelectedAll}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

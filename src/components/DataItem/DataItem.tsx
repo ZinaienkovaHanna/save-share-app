@@ -61,6 +61,7 @@ const DataItem: FC<DataItemProps> = ({ item, handleClearSelectedAll }) => {
     return (
         <div className={styles.container}>
             <input type="checkbox" checked={item.isSelected} onChange={handleToggleSelectedItem} />
+
             <IconButton
                 iconPath={item.isFavorite ? mdiStar : mdiStarOutline}
                 onClick={handleToggleFavoriteItem}
