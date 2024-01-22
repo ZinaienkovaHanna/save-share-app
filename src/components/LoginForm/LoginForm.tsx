@@ -1,0 +1,58 @@
+import { FC, useState } from 'react';
+import Button from '../Button';
+import Input from '../Input';
+import { validateLoginForm } from '../../utils/validationLoginForm';
+
+import styles from './LoginForm.module.css';
+
+interface Error {
+    email: string;
+    password: string;
+}
+
+const LoginForm: FC = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState<Error>({
+        email: '',
+        password: '',
+    });
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        const { isValid, errors } = validateLoginForm(email, password);
+
+        if (isValid) {
+            console.log('Login submitted with:', email, password);
+        } else {
+            setErrors(errors);
+        }
+    };
+
+    return (
+        <form className={styles.form} onSubmit={handleSubmit}>
+            <Input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email address"
+                autoComplete="email"
+                error={errors.email}
+            />
+
+            <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
+                autoComplete="current-password"
+                error={errors.password}
+            />
+
+            <Button text="Log In" type="submit" />
+        </form>
+    );
+};
+
+export default LoginForm;

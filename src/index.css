@@ -22,12 +22,13 @@ body {
 
     --invalidColor: rgb(228, 101, 101);
     --iconColor: #6f7b7d;
-    --borderItemColor: #dfdee1;
+    --borderItemColor: #dfdeee;
     --backgroundColor: #dfeeee;
     --backgroundMenuColor: #53787c;
     --backgroundItemColor: #f3f2f5;
     --backgroundItemHoverColor: #e1e0e2;
     --backgroundFormColor: #f3f2f5;
+    --backgroundInputColor: #fff;
     --backgroundModalColor: rgba(92, 93, 94, 0.4);
     --backgroundButtonColorHover: #a2c1c3;
     --backgroundActiveColor: #a2c1c3;
@@ -56,6 +57,7 @@ body {
     /* ### Border-radius */
     --borderRadius: 16px;
     --borderRadiusBase: 8px;
+    --borderRadiusSmall: 4px;
 
     /* ### Width */
     --containerWidth: 1200px;
@@ -72,7 +74,7 @@ body {
     --logoHeight: 48px;
     --buttonHeight: 32px;
     --loginHeight: 348px;
-    --signupHeight: 480px;
+    --signupHeight: 520px;
     --resetPasswordHeight: 300px;
     --itemHeight: 48px;
 

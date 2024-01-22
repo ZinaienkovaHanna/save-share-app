@@ -1,17 +1,12 @@
-.form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .input {
     width: var(--inputWidth);
     height: var(--spacingExtraMedium);
     margin-top: var(--spacingExtraMedium);
     border: none;
-    background-color: var(--backgroundFormColor);
-    border-bottom: 1px solid var(--textPlaceholderColor);
+    background-color: var(--backgroundInputColor);
+    border: 1px solid var(--textPlaceholderColor);
     padding-left: var(--spacingSmall);
+    border-radius: var(--borderRadiusSmall);
 }
 
 .input::placeholder {
@@ -23,14 +18,6 @@
 .input:focus {
     outline: none;
     border: 1px solid var(--textColor);
-}
-
-.checkbox_container {
-    width: var(--inputWidth);
-    margin-top: var(--spacingSmall);
-    font-size: var(--fontSizeSmall);
-    display: flex;
-    gap: var(--spacingSmall);
 }
 
 .error {

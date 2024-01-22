@@ -1,0 +1,13 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkbox_container {
+    width: var(--inputWidth);
+    margin-top: var(--spacingSmall);
+    font-size: var(--fontSizeSmall);
+    display: flex;
+    gap: var(--spacingSmall);
+}
