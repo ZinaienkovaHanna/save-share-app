@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import Button from '../Button';
 import Input from '../Input';
+import VerticalSpacer from '../VerticalSpacer';
 import { validateSignupForm } from '../../utils/validationSignupForm';
 
 import styles from './Signup.module.css';
@@ -47,6 +48,8 @@ const SignupForm: FC = () => {
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
+            <VerticalSpacer />
+
             <Input
                 type="text"
                 value={username}
@@ -55,6 +58,9 @@ const SignupForm: FC = () => {
                 autoComplete="username"
                 error={errors.username}
             />
+
+            <VerticalSpacer />
+
             <Input
                 type="email"
                 value={email}
@@ -63,6 +69,8 @@ const SignupForm: FC = () => {
                 autoComplete="email"
                 error={errors.email}
             />
+
+            <VerticalSpacer />
 
             <Input
                 type="password"
@@ -73,6 +81,8 @@ const SignupForm: FC = () => {
                 error={errors.password}
             />
 
+            <VerticalSpacer />
+
             <Input
                 type="password"
                 value={password}
@@ -81,6 +91,8 @@ const SignupForm: FC = () => {
                 autoComplete="new-password"
                 error={errors.confirmPassword}
             />
+
+            <VerticalSpacer />
 
             <div className={styles.checkbox_container}>
                 <input
@@ -95,6 +107,9 @@ const SignupForm: FC = () => {
                 </label>
             </div>
             {errors.terms && <p className={styles.error}>{errors.terms}</p>}
+
+            <VerticalSpacer />
+            <VerticalSpacer />
 
             <Button text="Create an account" type="submit" />
         </form>

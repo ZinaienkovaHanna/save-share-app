@@ -1,7 +1,6 @@
 .input {
     width: var(--inputWidth);
     height: var(--spacingExtraMedium);
-    margin-top: var(--spacingExtraMedium);
     border: none;
     background-color: var(--backgroundInputColor);
     border: 1px solid var(--textPlaceholderColor);

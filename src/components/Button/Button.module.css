@@ -1,5 +1,4 @@
 .button {
-    margin-top: var(--spacingLarge);
     padding: var(--spacingBase) var(--spacingExtraLarge);
     background-color: var(--backgroundMenuColor);
     border: none;

@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import Button from '../Button';
 import Input from '../Input';
+import VerticalSpacer from '../VerticalSpacer';
 import { validateLoginForm } from '../../utils/validationLoginForm';
 
 import styles from './LoginForm.module.css';
@@ -32,6 +33,8 @@ const LoginForm: FC = () => {
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
+            <VerticalSpacer />
+
             <Input
                 type="email"
                 value={email}
@@ -41,6 +44,8 @@ const LoginForm: FC = () => {
                 error={errors.email}
             />
 
+            <VerticalSpacer />
+
             <Input
                 type="password"
                 value={password}
@@ -49,6 +54,9 @@ const LoginForm: FC = () => {
                 autoComplete="current-password"
                 error={errors.password}
             />
+
+            <VerticalSpacer />
+            <VerticalSpacer />
 
             <Button text="Log In" type="submit" />
         </form>

@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import Button from '../Button';
 import Input from '../Input';
+import VerticalSpacer from '../VerticalSpacer';
 import { validateResetPasswordForm } from '../../utils/validationResetPassword';
 
 import styles from './ResetPasswordForm.module.css';
@@ -29,6 +30,8 @@ const ResetPasswordForm: FC = () => {
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
+            <VerticalSpacer />
+
             <Input
                 type="email"
                 value={email}
@@ -37,6 +40,9 @@ const ResetPasswordForm: FC = () => {
                 autoComplete="email"
                 error={errors.email}
             />
+
+            <VerticalSpacer />
+            <VerticalSpacer />
 
             <Button text="Reset Password" type="submit" />
         </form>
