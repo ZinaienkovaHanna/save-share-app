@@ -11,19 +11,20 @@ import {
     mdiCheckboxBlankOutline,
 } from '@mdi/js';
 import IconButton from '../IconButton';
+import InputCheckbox from '../InputCheckbox';
 import { File as FileType } from '../../types/types';
 
 import styles from './File.module.css';
 
 interface FileProps {
     file: FileType;
-    onDelete: (id: string) => void;
-    onEdit: (id: string) => void;
-    onSave: (id: string, newName: string) => void;
-    onArchive: (id: string) => void;
-    onFavorite: (id: string) => void;
-    onShare: (id: string) => void;
-    onSelect: (id: string) => void;
+    onDelete: () => void;
+    onEdit: () => void;
+    onSave: (newName: string) => void;
+    onArchive: () => void;
+    onFavorite: () => void;
+    onShare: () => void;
+    onSelect: () => void;
 }
 
 const File: FC<FileProps> = ({
@@ -45,14 +46,19 @@ const File: FC<FileProps> = ({
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <IconButton
+            <InputCheckbox
+                checked={file.isSelected}
+                onChange={onSelect}
+                id={file.id}
+                iconSize={0.8}
                 iconPath={file.isSelected ? mdiCheckboxOutline : mdiCheckboxBlankOutline}
-                onClick={() => onSelect(file.id)}
+                tooltip="Choose"
             />
 
             <IconButton
                 iconPath={file.isFavorite ? mdiStar : mdiStarOutline}
-                onClick={() => onFavorite(file.id)}
+                onClick={onFavorite}
+                tooltip={file.isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
             />
 
             <div>
@@ -63,7 +69,7 @@ const File: FC<FileProps> = ({
                         value={newName}
                         onChange={(e) => setNewName(e.target.value)}
                         onKeyDown={(e) => {
-                            if (e.key === 'Enter') onSave(file.id, newName);
+                            if (e.key === 'Enter') onSave(newName);
                         }}
                     />
                 ) : (
@@ -77,14 +83,14 @@ const File: FC<FileProps> = ({
 
             {(file.isSelected || isHovered) && (
                 <div className={styles.action_container}>
-                    <IconButton iconPath={mdiRename} onClick={() => onEdit(file.id)} />
-                    {/* TODO: */}
-                    <IconButton iconPath={mdiExportVariant} onClick={() => onShare(file.id)} />
+                    <IconButton iconPath={mdiRename} onClick={onEdit} tooltip="Edit Name" />
+                    <IconButton iconPath={mdiExportVariant} onClick={onShare} tooltip="Share" />
                     <IconButton
                         iconPath={file.isArchive ? mdiArchive : mdiArchiveOutline}
-                        onClick={() => onArchive(file.id)}
+                        onClick={onArchive}
+                        tooltip={file.isArchive ? 'Unarchive' : 'Archive'}
                     />
-                    <IconButton iconPath={mdiDelete} onClick={() => onDelete(file.id)} />
+                    <IconButton iconPath={mdiDelete} onClick={onDelete} tooltip="Delete" />
                 </div>
             )}
         </div>

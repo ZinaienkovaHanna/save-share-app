@@ -1,10 +1,12 @@
 import { FC, useState } from 'react';
+import { mdiCheckboxOutline, mdiCheckboxBlankOutline } from '@mdi/js';
 import Button from '../Button';
 import Input from '../Input';
 import VerticalSpacer from '../VerticalSpacer';
 import { validateSignupForm } from '../../utils/validationSignupForm';
 
 import styles from './Signup.module.css';
+import InputCheckbox from '../InputCheckbox';
 
 interface Error {
     username: string;
@@ -95,18 +97,18 @@ const SignupForm: FC = () => {
             <VerticalSpacer />
 
             <div className={styles.checkbox_container}>
-                <input
-                    type="checkbox"
-                    id="termsAndConditions"
+                <InputCheckbox
                     checked={termsAccepted}
                     onChange={() => setTermsAccepted(!termsAccepted)}
+                    textLabel="Signing up signifies that you have read and agree to the Terms of Service and
+                    our Privacy Policy. Cookie Preferences."
+                    id="termsAndConditions"
+                    iconSize={1.75}
+                    iconPath={termsAccepted ? mdiCheckboxOutline : mdiCheckboxBlankOutline}
+                    tooltip="Choose"
                 />
-                <label htmlFor="termsAndConditions">
-                    Signing up signifies that you have read and agree to the Terms of Service and
-                    our Privacy Policy. Cookie Preferences.
-                </label>
+                {errors.terms && <p className={styles.error}>{errors.terms}</p>}
             </div>
-            {errors.terms && <p className={styles.error}>{errors.terms}</p>}
 
             <VerticalSpacer />
             <VerticalSpacer />

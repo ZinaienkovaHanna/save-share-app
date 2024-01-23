@@ -5,11 +5,13 @@ import data from '../../mockedData/data.json';
 interface filesStateType {
     files: File[];
     selectedFiles: 'none' | 'some' | 'all';
+    selectedFavoriteFiles: boolean;
 }
 
 const initialState: filesStateType = {
     files: data,
     selectedFiles: 'none',
+    selectedFavoriteFiles: false,
 };
 
 const filesSlice = createSlice({
@@ -38,6 +40,10 @@ const filesSlice = createSlice({
 
         updateSelectedAllFiles: (state, action: PayloadAction<'none' | 'some' | 'all'>) => {
             state.selectedFiles = action.payload;
+        },
+
+        toggleSelectedFavoriteFiles: (state) => {
+            state.selectedFavoriteFiles = !state.selectedFavoriteFiles;
         },
 
         selectAllFiles: (state) => {
@@ -138,6 +144,7 @@ export const {
     deleteSelectedFiles,
     toogleSelectedFile,
     updateSelectedAllFiles,
+    toggleSelectedFavoriteFiles,
     selectAllFiles,
     deselectAllFiles,
     toggleFavoriteFile,

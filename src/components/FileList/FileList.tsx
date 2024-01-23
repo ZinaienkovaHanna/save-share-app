@@ -15,14 +15,14 @@ import {
     updateSelectedAllFiles,
     updateFavoriteForAllFiles,
     deleteSelectedFiles,
+    toggleSelectedFavoriteFiles,
 } from '../../store/reducers/filesReducer';
 
 import styles from './FileList.module.css';
 
 const FileList: FC = () => {
-    const { files, selectedFiles } = useAppSelector((state) => state.files);
+    const { files, selectedFiles, selectedFavoriteFiles } = useAppSelector((state) => state.files);
     const isAnyFileSelected = files.some((file) => file.isSelected);
-    const isAnyFileFavorite = files.some((file) => file.isFavorite);
 
     const dispatch = useAppDispatch();
 
@@ -44,7 +44,8 @@ const FileList: FC = () => {
     };
 
     const handleToggleFavoriteSelectedFiles = () => {
-        dispatch(updateFavoriteForAllFiles(!isAnyFileFavorite));
+        dispatch(updateFavoriteForAllFiles(!selectedFavoriteFiles));
+        dispatch(toggleSelectedFavoriteFiles());
     };
 
     const handleDeleteSelectedFiles = () => {
@@ -70,6 +71,7 @@ const FileList: FC = () => {
     };
 
     const handleShareFile = (id: string) => {
+        /* TODO: */
         console.log(id);
     };
 
@@ -86,6 +88,7 @@ const FileList: FC = () => {
             <TopBar
                 isAnyFileSelected={isAnyFileSelected}
                 selectedFiles={selectedFiles}
+                selectedFavoriteFiles={selectedFavoriteFiles}
                 onSelectAll={handleUpdateSelectedFiles}
                 onFavoriteAll={handleToggleFavoriteSelectedFiles}
                 onDeleteAll={handleDeleteSelectedFiles}
@@ -96,13 +99,13 @@ const FileList: FC = () => {
                     <File
                         key={file.id}
                         file={file}
-                        onSelect={handleToggleSelectedFile}
-                        onFavorite={handleToggleFavoriteFile}
-                        onEdit={handleEditFileName}
+                        onSelect={() => handleToggleSelectedFile(file.id)}
+                        onFavorite={() => handleToggleFavoriteFile(file.id)}
+                        onEdit={() => handleEditFileName(file.id)}
                         onSave={(newName) => handleSaveFileName(file.id, newName)}
-                        onShare={handleShareFile}
-                        onArchive={handleToggleArchiveFile}
-                        onDelete={handleDeleteFile}
+                        onShare={() => handleShareFile(file.id)}
+                        onArchive={() => handleToggleArchiveFile(file.id)}
+                        onDelete={() => handleDeleteFile(file.id)}
                     />
                 ))}
             </div>
