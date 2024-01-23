@@ -3,7 +3,6 @@
     height: var(--spacingExtraMedium);
     border: none;
     background-color: var(--backgroundInputColor);
-    border: 1px solid var(--textPlaceholderColor);
     padding-left: var(--spacingSmall);
     border-radius: var(--borderRadiusSmall);
 }

@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import DataList from '../../components/DataList';
+import FileList from '../../components/FileList';
 
 const Home: FC = () => {
-    return <DataList />;
+    return <FileList />;
 };
 
 export default Home;

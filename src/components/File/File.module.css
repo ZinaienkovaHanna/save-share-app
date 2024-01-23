@@ -38,13 +38,13 @@
 
 .name_input {
     min-width: var(--nameContainerWidth);
-    border: 1px solid var(--borderItemColor);
     font-size: var(--fontSizeBase);
+    border-radius: var(--borderRadiusSmall);
 }
 
 .name_input:focus {
     outline: none;
-    border: 1px solid var(--textColor);
+    border: 1px solid var(--textPlaceholderColor);
 }
 
 .text {
