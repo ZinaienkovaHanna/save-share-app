@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { File } from '../../types/types';
-import data from '../../mockedData/data.json';
+import files from '../../mockedData/files.json';
 
 interface filesStateType {
     files: File[];
@@ -9,7 +9,7 @@ interface filesStateType {
 }
 
 const initialState: filesStateType = {
-    files: data,
+    files: files,
     selectedFiles: 'none',
     selectedFavoriteFiles: false,
 };
