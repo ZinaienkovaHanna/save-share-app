@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkbox_container {
+    margin-top: var(--spacingSmall);
+    width: var(--inputWidth);
+}
+
+.error {
+    font-size: var(--fontSizeSmall);
+    text-align: left;
+    color: var(--invalidColor);
+}

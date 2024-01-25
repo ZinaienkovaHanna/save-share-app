@@ -1,0 +1,32 @@
+.container {
+    height: var(--menuHeight);
+    background-color: var(--backgroundMenuColor);
+}
+
+.wrapper {
+    width: var(--menuWidth);
+    height: var(--menuHeight);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.logo {
+    text-decoration: none;
+    color: var(--textMenuColor);
+    font-size: var(--fontSizeBase);
+    font-weight: var(--fontWeightRegular);
+}
+
+.link {
+    text-decoration: none;
+    color: var(--textMenuColor);
+    font-size: var(--fontSizeBase);
+    font-weight: var(--fontWeightRegular);
+}
+
+.link:hover {
+    text-decoration: underline;
+}

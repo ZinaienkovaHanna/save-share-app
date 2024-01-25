@@ -1,0 +1,14 @@
+.button {
+    padding: var(--spacingBase) var(--spacingExtraLarge);
+    background-color: var(--backgroundMenuColor);
+    border: none;
+    border-radius: var(--borderRadius);
+    color: var(--textButtonColor);
+    font-size: var(--fontSizeBase);
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--backgroundButtonColorHover);
+    color: var(--textColor);
+}

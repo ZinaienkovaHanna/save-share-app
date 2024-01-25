@@ -1,0 +1,26 @@
+.input {
+    width: var(--inputWidth);
+    height: var(--spacingExtraMedium);
+    border: none;
+    background-color: var(--backgroundInputColor);
+    padding-left: var(--spacingSmall);
+    border-radius: var(--borderRadiusSmall);
+}
+
+.input::placeholder {
+    color: var(--textPlaceholderColor);
+    font-size: var(--fontSizeSmall);
+    font-style: italic;
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid var(--textColor);
+}
+
+.error {
+    font-size: var(--fontSizeSmall);
+    width: var(--inputWidth);
+    color: var(--invalidColor);
+    margin: 0;
+}

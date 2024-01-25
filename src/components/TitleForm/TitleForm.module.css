@@ -1,0 +1,6 @@
+.title {
+    text-align: center;
+    color: var(--textColor);
+    font-size: var(--fontSizeMedium);
+    font-weight: var(--fontWeightRegular);
+}

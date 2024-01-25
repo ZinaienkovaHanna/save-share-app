@@ -1,0 +1,12 @@
+.container {
+    font-size: var(--fontSizeSmall);
+    display: flex;
+    align-items: center;
+    gap: var(--spacingSmall);
+    color: var(--textColor);
+    cursor: pointer;
+}
+
+.input {
+    display: none;
+}

@@ -1,0 +1,13 @@
+.container {
+    max-width: var(--containerWidth);
+    margin: auto;
+}
+
+.container_list {
+    max-width: var(--containerWidth);
+    background-color: var(--backgroundItemColor);
+    margin: auto;
+    border: 1px solid var(--borderItemColor);
+    border-bottom: none;
+    border-radius: var(--borderRadiusBase);
+}

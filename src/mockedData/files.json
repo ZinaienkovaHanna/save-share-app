@@ -1,0 +1,79 @@
+[
+    {
+        "id": "0",
+        "userId": "0",
+        "name": "Lorem ipsum dolor",
+        "text": "Lorem ipsum dolor sit amet.",
+        "fileSize": "10 kB",
+        "isFavorite": true,
+        "isArchive": false,
+        "isSelected": false,
+        "isEditingName": false
+    },
+    {
+        "id": "1",
+        "userId": "0",
+        "name": "Lorem ipsum",
+        "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquam doloribus ab fugit rem dignissimos enim aut voluptate earum repellat ad, at distinctio vitae error temporibus quas voluptas delectus placeat. Ab fugit magnam placeat incidunt aliquam quasi porro esse in?",
+        "fileSize": "12 kB",
+        "isFavorite": false,
+        "isArchive": true,
+        "isSelected": false,
+        "isEditingName": false
+    },
+    {
+        "id": "2",
+        "userId": "0",
+        "name": "Lorem, ipsum dolor sit",
+        "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquam doloribus ab fugit rem dignissimos enim aut voluptate earum repellat ad, at distinctio vitae error temporibus quas voluptas delectus placeat. Ab fugit magnam placeat incidunt aliquam quasi porro esse in?",
+        "fileSize": "23 kB",
+        "isFavorite": false,
+        "isArchive": false,
+        "isSelected": false,
+        "isEditingName": false
+    },
+    {
+        "id": "3",
+        "userId": "1",
+        "name": "Lorem",
+        "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquam doloribus ab fugit rem dignissimos enim aut voluptate earum repellat ad.",
+        "fileSize": "15 kB",
+        "isFavorite": false,
+        "isArchive": false,
+        "isSelected": false,
+        "isEditingName": false
+    },
+    {
+        "id": "4",
+        "userId": "1",
+        "name": "Lorem, ipsum dolor",
+        "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquam doloribus ab.",
+        "fileSize": "15 kB",
+        "isFavorite": true,
+        "isArchive": false,
+        "isSelected": false,
+        "isEditingName": false
+    },
+    {
+        "id": "5",
+        "userId": "1",
+        "name": "Lorem, ipsum",
+        "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+        "fileSize": "14 kB",
+        "isFavorite": false,
+        "isArchive": false,
+        "isSelected": false,
+        "isEditingName": false
+    },
+    {
+        "id": "6",
+        "userId": "1",
+        "name": "Lorem, ipsum dolor",
+        "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquam doloribus ab fugit rem dignissimos enim aut voluptate earum repellat ad.",
+        "fileSize": "18 kB",
+        "isFavorite": false,
+        "isArchive": false,
+        "isSelected": false,
+        "isEditingName": false
+    }
+]
