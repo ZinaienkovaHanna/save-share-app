@@ -1,8 +1,6 @@
 .container {
     max-width: var(--containerWidth);
     height: var(--itemHeight);
-    margin-top: var(--spacingExtraLarge);
-    margin-bottom: var(--spacingBase);
     padding: 0 var(--spacingSmall);
     background-color: var(--backgroundItemColor);
     border-radius: var(--borderRadiusBase);

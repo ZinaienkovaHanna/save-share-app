@@ -3,30 +3,30 @@ import { mdiCheckboxOutline, mdiCheckboxBlankOutline } from '@mdi/js';
 import Button from '../Button';
 import Input from '../Input';
 import VerticalSpacer from '../VerticalSpacer';
+import InputCheckbox from '../InputCheckbox';
 import { validateSignupForm } from '../../utils/validationSignupForm';
 
 import styles from './Signup.module.css';
-import InputCheckbox from '../InputCheckbox';
 
 interface Error {
     username: string;
     email: string;
     password: string;
     terms: string;
-    confirmPassword: string;
+    passwordConfirm: string;
 }
 
 const SignupForm: FC = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [passwordConfirm, setPasswordConfirm] = useState('');
     const [termsAccepted, setTermsAccepted] = useState(true);
     const [errors, setErrors] = useState<Error>({
         username: '',
         email: '',
         password: '',
-        confirmPassword,
+        passwordConfirm,
         terms: '',
     });
 
@@ -37,7 +37,7 @@ const SignupForm: FC = () => {
             username,
             email,
             password,
-            confirmPassword,
+            passwordConfirm,
             termsAccepted
         );
 
@@ -55,7 +55,13 @@ const SignupForm: FC = () => {
             <Input
                 type="text"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => {
+                    setUsername(e.target.value);
+                    setErrors({
+                        ...errors,
+                        username: '',
+                    });
+                }}
                 placeholder="Enter your name"
                 autoComplete="username"
                 error={errors.username}
@@ -66,7 +72,13 @@ const SignupForm: FC = () => {
             <Input
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                    setEmail(e.target.value);
+                    setErrors({
+                        ...errors,
+                        email: '',
+                    });
+                }}
                 placeholder="Enter your email address"
                 autoComplete="email"
                 error={errors.email}
@@ -77,7 +89,13 @@ const SignupForm: FC = () => {
             <Input
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                    setPassword(e.target.value);
+                    setErrors({
+                        ...errors,
+                        password: '',
+                    });
+                }}
                 placeholder="Create a password"
                 autoComplete="new-password"
                 error={errors.password}
@@ -87,11 +105,17 @@ const SignupForm: FC = () => {
 
             <Input
                 type="password"
-                value={password}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                value={passwordConfirm}
+                onChange={(e) => {
+                    setPasswordConfirm(e.target.value);
+                    setErrors({
+                        ...errors,
+                        passwordConfirm: '',
+                    });
+                }}
                 placeholder="Confirm your password"
                 autoComplete="new-password"
-                error={errors.confirmPassword}
+                error={errors.passwordConfirm}
             />
 
             <VerticalSpacer />
@@ -99,7 +123,13 @@ const SignupForm: FC = () => {
             <div className={styles.checkbox_container}>
                 <InputCheckbox
                     checked={termsAccepted}
-                    onChange={() => setTermsAccepted(!termsAccepted)}
+                    onChange={() => {
+                        setTermsAccepted(!termsAccepted);
+                        setErrors({
+                            ...errors,
+                            terms: '',
+                        });
+                    }}
                     textLabel="Signing up signifies that you have read and agree to the Terms of Service and
                     our Privacy Policy. Cookie Preferences."
                     id="termsAndConditions"
@@ -110,8 +140,7 @@ const SignupForm: FC = () => {
                 {errors.terms && <p className={styles.error}>{errors.terms}</p>}
             </div>
 
-            <VerticalSpacer />
-            <VerticalSpacer />
+            <VerticalSpacer className="spacer_large" />
 
             <Button text="Create an account" type="submit" />
         </form>

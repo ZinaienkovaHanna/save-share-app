@@ -54,6 +54,7 @@ const TopBar: FC<TopBarProps> = ({
                             selectedFavoriteFiles ? 'Remove from Favorites' : 'Add to Favorites'
                         }
                     />
+
                     <IconButton iconPath={mdiDelete} onClick={onDeleteAll} tooltip="Delete" />
                 </>
             )}

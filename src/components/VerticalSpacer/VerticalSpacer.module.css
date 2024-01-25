@@ -1,3 +1,11 @@
-.container {
+.spacer {
     margin-top: var(--spacingExtraMedium);
+}
+
+.spacer_large {
+    margin-top: var(--spacingExtraLarge);
+}
+
+.spacer_small {
+    margin-top: var(--spacingBase);
 }

@@ -19,6 +19,7 @@ import {
 } from '../../store/reducers/filesReducer';
 
 import styles from './FileList.module.css';
+import VerticalSpacer from '../VerticalSpacer';
 
 const FileList: FC = () => {
     const { files, selectedFiles, selectedFavoriteFiles } = useAppSelector((state) => state.files);
@@ -85,6 +86,8 @@ const FileList: FC = () => {
 
     return (
         <div className={styles.container}>
+            <VerticalSpacer className="spacer_large" />
+
             <TopBar
                 isAnyFileSelected={isAnyFileSelected}
                 selectedFiles={selectedFiles}
@@ -93,6 +96,8 @@ const FileList: FC = () => {
                 onFavoriteAll={handleToggleFavoriteSelectedFiles}
                 onDeleteAll={handleDeleteSelectedFiles}
             />
+
+            <VerticalSpacer className="spacer_small" />
 
             <div className={styles.container_list}>
                 {files.map((file) => (

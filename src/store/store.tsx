@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import filesReducer from './reducers/filesReducer';
-import usersReducer from './reducers/usersReducer';
 
 const store = configureStore({
     reducer: {
         files: filesReducer,
-        users: usersReducer,
     },
 });
 

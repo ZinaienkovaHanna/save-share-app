@@ -35,14 +35,19 @@ const ResetPasswordForm: FC = () => {
             <Input
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                    setEmail(e.target.value);
+                    setErrors({
+                        ...errors,
+                        email: '',
+                    });
+                }}
                 placeholder="Enter your email address"
                 autoComplete="email"
                 error={errors.email}
             />
 
-            <VerticalSpacer />
-            <VerticalSpacer />
+            <VerticalSpacer className="spacer_large" />
 
             <Button text="Reset Password" type="submit" />
         </form>

@@ -2,8 +2,12 @@ import { FC } from 'react';
 
 import styles from './VerticalSpacer.module.css';
 
-const VerticalSpacer: FC = () => {
-    return <div className={styles.container} />;
+interface VerticalSpacerProps {
+    className?: string;
+}
+
+const VerticalSpacer: FC<VerticalSpacerProps> = ({ className }) => {
+    return <div className={`${styles.spacer} ${className ? styles[className] : ''}`} />;
 };
 
 export default VerticalSpacer;

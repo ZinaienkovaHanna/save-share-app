@@ -38,7 +38,13 @@ const LoginForm: FC = () => {
             <Input
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                    setEmail(e.target.value);
+                    setErrors({
+                        ...errors,
+                        email: '',
+                    });
+                }}
                 placeholder="Enter your email address"
                 autoComplete="email"
                 error={errors.email}
@@ -49,14 +55,19 @@ const LoginForm: FC = () => {
             <Input
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                    setPassword(e.target.value);
+                    setErrors({
+                        ...errors,
+                        password: '',
+                    });
+                }}
                 placeholder="Enter your password"
                 autoComplete="current-password"
                 error={errors.password}
             />
 
-            <VerticalSpacer />
-            <VerticalSpacer />
+            <VerticalSpacer className="spacer_large" />
 
             <Button text="Log In" type="submit" />
         </form>

@@ -2,7 +2,7 @@ interface Error {
     username: string;
     email: string;
     password: string;
-    confirmPassword: string;
+    passwordConfirm: string;
     terms: string;
 }
 
@@ -10,7 +10,7 @@ export const validateSignupForm = (
     username: string,
     email: string,
     password: string,
-    confirmPassword: string,
+    passwordConfirm: string,
     termsAccepted: boolean
 ): { isValid: boolean; errors: Error } => {
     let isValid = true;
@@ -21,7 +21,7 @@ export const validateSignupForm = (
         username: '',
         email: '',
         password: '',
-        confirmPassword: '',
+        passwordConfirm: '',
         terms: '',
     };
 
@@ -52,8 +52,8 @@ export const validateSignupForm = (
         isValid = false;
     }
 
-    if (password === confirmPassword) {
-        newErrors.confirmPassword = 'The passwords do not match.';
+    if (password !== passwordConfirm) {
+        newErrors.passwordConfirm = 'The passwords do not match.';
         isValid = false;
     }
 

@@ -23,6 +23,7 @@ const ResetPassword: FC = () => {
                 <Link to="/login" className={styles.link}>
                     Log In
                 </Link>
+
                 <Link to="/signup" className={styles.link}>
                     Sign Up
                 </Link>
