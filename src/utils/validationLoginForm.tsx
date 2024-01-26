@@ -17,12 +17,12 @@ export const validateLoginForm = (
     };
 
     if (!emailRegex.test(email)) {
-        newErrors.email = 'Invalid email address.';
+        newErrors.email = 'Email failed.';
         isValid = false;
     }
 
     if (!passwordRegex.test(password)) {
-        newErrors.password = 'Invalid password.';
+        newErrors.password = 'Password failed.';
         isValid = false;
     }
 

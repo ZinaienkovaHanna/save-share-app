@@ -1,10 +1,15 @@
 import { FC, useState } from 'react';
 import { mdiCheckboxOutline, mdiCheckboxBlankOutline } from '@mdi/js';
+import { useNavigate } from 'react-router';
 import Button from '../Button';
 import Input from '../Input';
 import VerticalSpacer from '../VerticalSpacer';
 import InputCheckbox from '../InputCheckbox';
 import { validateSignupForm } from '../../utils/validationSignupForm';
+import { useAppDispatch } from '../../store/hooks';
+import { setUser } from '../../store/reducers/userReducer';
+// import { login } from '../../services/authService';
+import { findUserByEmail } from '../../utils/findUserByEmail';
 
 import styles from './Signup.module.css';
 
@@ -30,6 +35,9 @@ const SignupForm: FC = () => {
         terms: '',
     });
 
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -43,6 +51,16 @@ const SignupForm: FC = () => {
 
         if (isValid) {
             console.log('Signup submitted with:', username, email, password);
+
+            try {
+                // FIXME:
+                // const { token, id } = await login(email, password);
+                const { token, id } = findUserByEmail(email);
+                dispatch(setUser({ email, token, id }));
+                navigate('/');
+            } catch (error) {
+                setErrors(errors);
+            }
         } else {
             setErrors(errors);
         }
