@@ -1,8 +1,13 @@
 import { FC, useState } from 'react';
+import { useNavigate } from 'react-router';
 import Button from '../Button';
 import Input from '../Input';
 import VerticalSpacer from '../VerticalSpacer';
 import { validateLoginForm } from '../../utils/validationLoginForm';
+import { useAppDispatch } from '../../store/hooks';
+import { setUser } from '../../store/reducers/userReducer';
+// import { login } from '../../services/authService';
+import { findUserByEmail } from '../../utils/findUserByEmail';
 
 import styles from './LoginForm.module.css';
 
@@ -19,13 +24,25 @@ const LoginForm: FC = () => {
         password: '',
     });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         const { isValid, errors } = validateLoginForm(email, password);
 
         if (isValid) {
-            console.log('Login submitted with:', email, password);
+            try {
+                // FIXME:
+                // const { token, id } = await login(email, password);
+                const { token, id } = findUserByEmail(email);
+                console.log('Login submitted with:', email, password);
+                dispatch(setUser({ email, token, id }));
+                navigate('/');
+            } catch (error) {
+                setErrors({ email: 'Email failed', password: '' });
+            }
         } else {
             setErrors(errors);
         }

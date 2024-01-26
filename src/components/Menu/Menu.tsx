@@ -1,9 +1,15 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { useAppDispatch, useAuth } from '../../store/hooks';
+import { removeUser } from '../../store/reducers/userReducer';
 
 import styles from './Menu.module.css';
 
 const Menu: FC = () => {
+    const dispatch = useAppDispatch();
+
+    const { isAuth, email } = useAuth();
+
     return (
         <div className={styles.container}>
             <nav>
@@ -15,9 +21,18 @@ const Menu: FC = () => {
                     </li>
 
                     <li>
-                        <Link to="/login" className={styles.link}>
-                            Log in
-                        </Link>
+                        {isAuth ? (
+                            <button
+                                onClick={() => dispatch(removeUser())}
+                                className={styles.button}
+                            >
+                                Log out {email}
+                            </button>
+                        ) : (
+                            <Link to="/login" className={styles.link}>
+                                Log in
+                            </Link>
+                        )}
                     </li>
                 </ul>
             </nav>
